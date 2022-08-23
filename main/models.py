@@ -8,14 +8,3 @@
 from django.db import models
 
 
-class Clientes(models.Model):
-    id = models.IntegerField(primary_key=True)
-    nome = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
-    telefone = models.CharField(max_length=100, blank=True, null=True)
-    datanascimento = models.DateField()
-    prontuario = models.TextField()
-
-    class Meta:
-        managed = False
-        db_table = 'clientes'
