@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from db_keys import *
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -77,16 +78,7 @@ WSGI_APPLICATION = 'hospitalunicamp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql', 
-        'NAME': 'bmjchisulbbne5ba2ssm',
-        'USER': 'ughxenrt0xafzebiq5ge',
-        'PASSWORD': 'Eq3ElsomQgwzkQfSKZBV',
-        'HOST':'bmjchisulbbne5ba2ssm-postgresql.services.clever-cloud.com',
-        'PORT':'5432',
-    }
-}
+DATABASES = db_acess
 
 
 # Password validation

@@ -5,6 +5,9 @@ from django.contrib.admin import (
     AllValuesFieldListFilter,
     DateFieldListFilter,
 )
+from .models import *
+from django.db import connections
+
 
 class ListAdminMixin(object):
     def __init__(self, model, admin_site):
@@ -14,6 +17,8 @@ class ListAdminMixin(object):
 
 models = apps.get_models()
 for model in models:
+    
+
     admin_class = type('AdminClass', (ListAdminMixin, admin.ModelAdmin), {})
     try:
         admin.site.register(model, admin_class)
