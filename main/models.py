@@ -12,6 +12,7 @@ from django.db import connection
 
 
 
+
 class DimConselho(models.Model):
     idconselho = models.AutoField(primary_key=True)
     nmconselho = models.CharField(max_length=50, blank=True, null=True)
@@ -67,23 +68,19 @@ class DimConsulta(models.Model):
                             'dim_medico_dim_prestador_idprestador', 
                             'dim_medico_dim_tipo_funcionario_idtipo_funcionario', 
                             'dim_medico_dim_tipo_funcionario_dim_funcao_idfuncao'),)
-
-
 class DimEndereco(models.Model):
     idendereco = models.AutoField(primary_key=True)
-    nmendereco = models.CharField(max_length=255, blank=True, null=True)
-    numero = models.CharField(max_length=255, blank=True, null=True)
-    nmbairro = models.CharField(max_length=255, blank=True, null=True)
-    nmcidade = models.CharField(max_length=255, blank=True, null=True)
-    nmestado = models.CharField(max_length=255, blank=True, null=True)
-    nmpais = models.CharField(max_length=255, blank=True, null=True)
-    cep = models.CharField(max_length=255, blank=True, null=True)
-    nmcomplento = models.CharField(max_length=255, blank=True, null=True)
+    nmendereco = models.CharField(max_length=30, blank=True, null=True)
+    numero = models.CharField(max_length=5, blank=True, null=True)
+    nmbairro = models.CharField(max_length=30, blank=True, null=True)
+    nmcidade = models.CharField(max_length=30, blank=True, null=True)
+    nmestado = models.CharField(max_length=2, blank=True, null=True)
+    nmpais = models.CharField(max_length=30, blank=True, null=True)
+    cep = models.CharField(max_length=20, blank=True, null=True)
+    nmcomplento = models.CharField(max_length=10, blank=True, null=True)
     def __str__(self):
         return '%s %s' % (str(self.idendereco), self.nmendereco)
-    #def __str__(self):
-    #    return self.cep
-    
+
     class Meta:
         managed = True
         db_table = 'dim_endereco'
@@ -91,16 +88,15 @@ class DimEndereco(models.Model):
 
 class DimEnderecoCep(models.Model):
     idendereco_cep = models.AutoField(primary_key=True)
-    nmcep = models.CharField(max_length=100, blank=True, null=True)
-    nm_enereco = models.CharField(max_length=100, blank=True, null=True)
-    nmbairro = models.CharField(max_length=100, blank=True, null=True)
-    nmcidade = models.CharField(max_length=100, blank=True, null=True)
-    nmestado = models.CharField(max_length=100, blank=True, null=True)
-    nmobservacao = models.CharField(max_length=100, blank=True, null=True)
+    nmcep = models.CharField(max_length=30, blank=True, null=True)
+    nm_enereco = models.CharField(max_length=5, blank=True, null=True)
+    nmbairro = models.CharField(max_length=30, blank=True, null=True)
+    nmcidade = models.CharField(max_length=30, blank=True, null=True)
+    nmestado = models.CharField(max_length=2, blank=True, null=True)
+    nmobservacao = models.CharField(max_length=80, blank=True, null=True)
     def __str__(self):
         return '%s %s' % (str(self.idendereco_cep), self.nmcep)
-    #def __str__(self):
-    #    return self.nmcep
+
     
     class Meta:
         managed = True
